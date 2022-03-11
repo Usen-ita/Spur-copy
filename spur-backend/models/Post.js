@@ -17,6 +17,10 @@ const PostSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+    tag: {
+      type: String,
+      max: 500,
+    },
   },
   { timestamps: true }
 );

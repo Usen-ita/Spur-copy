@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "AvertaStd-ExtraBold";
+  src: local("Hurmeblack"),
+    url("./Font/AvertaStd-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AvertaStd-Bold";
+  src: local("Semibold"),
+    url("./Font/AvertaStd-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AvertaStd-Semibold";
+  src: local("Semibold"),
+    url("./Font/AvertaStd-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AvertaStd-Regular";
+  src: local("Semibold"),
+    url("./Font/AvertaStd-Regular.ttf") format("truetype");
+}
+
+

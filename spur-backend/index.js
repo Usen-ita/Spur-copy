@@ -13,13 +13,28 @@ const path = require("path");
 
 dotenv.config();
 
+const db = process.env.MONGO_URL;
+
+console.log("db url: " + db);
 mongoose.connect(
-  process.env.MONGO_URL,
+  db,
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to MongoDB");
+  (err) => {
+    console.log(err);
+    console.log("Connected to MongoDB\n" + db);
   }
 );
+
+const conSuccess = mongoose.connection;
+conSuccess.once("open", (_) => {
+  console.log("Database connected:", db);
+});
+
+conSuccess.on("error", (err) => {
+  console.error("connection error:", err);
+});
+
+console.log("after conect");
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
@@ -32,7 +47,8 @@ const storage = multer.diskStorage({
     cb(null, "public/images");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.name);
+    console.log(`\n\n\t--${req.body.filename}----\n\n`);
+    cb(null, req.body.filename);
   },
 });
 
