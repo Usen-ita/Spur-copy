@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import Login from "./pages/login/Login";
 import SdgOption from "./pages/17sdg/sdgOption";
-//import Welcome from "./pages/welcome/App";
+import WelcomePage from "./pages/welcome/welcome-page.jsx";
 import context from "react-bootstrap/esm/AccordionContext";
 import { AuthContext } from "./context/AuthContext.js";
 
@@ -30,10 +30,11 @@ function App() {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
+            <Route exact path="/welcome" element={<WelcomePage />} />
 
         <Route path="/sdgOptions" element={<SdgOption />} />
         <Route path="/profile/:username" element={<Profile />} />
-        {/*<Route path="/welcome" element= {<Welcome />} />*/}
+       
       </Routes>
     </Router>
   );
